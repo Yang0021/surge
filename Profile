@@ -88,6 +88,8 @@ use-default-policy-if-wifi-not-primary = false
 #   - REJECT：回退到 REJECT 策略
 udp-policy-not-supported-behaviour = REJECT
 
+hide-vpn-icon = true
+
 [Replica]
 # 抓取流量 => 过滤器 1为开启，0为关闭
 # 隐藏 Apple 请求
