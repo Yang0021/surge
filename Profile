@@ -140,7 +140,7 @@ DIRECT = direct
 #   避免因出口 IP 不同而触发目标网站的风险控制。但当可用性改变时可能导致策略变化。
 [Proxy Group]
 Final = select, Proxy🪁, DIRECT
-Proxy🪁 = select, 
+Proxy🪁 = select, DIRECT
 CN = select, DIRECT
 # Home⛺️ = subnet, default = Proxy🪁, "SSID:value" = DIRECT, "TYPE:CELLULAR" = Proxy🪁
 Netflix = select, Proxy🪁 , DIRECT
