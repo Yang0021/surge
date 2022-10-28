@@ -1,7 +1,3 @@
-# 你可以从该 URL 下载这个配置文件: https://blankmagic.github.io/surge/profile.conf
-# 导入配置后替换策略组 [Proxy Group] 中订阅地址
-# Version 2022.09
-
 [General]
 # --- GENERAL ---
 # Enhanced Wi-Fi Assist
@@ -144,19 +140,14 @@ DIRECT = direct
 #   避免因出口 IP 不同而触发目标网站的风险控制。但当可用性改变时可能导致策略变化。
 [Proxy Group]
 Final = select, Proxy🪁, DIRECT
-Proxy🪁 = select, 🇺🇸 America, 🇭🇰 Load balance, 🇸🇬 Singapore, 🇨🇳 Fallback, policy-path=url // policy-path=你的订阅地址
+Proxy🪁 = select, 
 CN = select, DIRECT
 # Home⛺️ = subnet, default = Proxy🪁, "SSID:value" = DIRECT, "TYPE:CELLULAR" = Proxy🪁
-Netflix = select, 🇺🇸 America, 🇭🇰 Load balance, 🇸🇬 Singapore, 🇨🇳 Fallback
-Twitter = select, 🇺🇸 America, Proxy🪁 
-Telegram = select, 🇭🇰 Load balance, 🇸🇬 Singapore, hybrid=off // hybrid=off 即使在 All Hybrid 或 WiFi Assist 开启时，有 WiFi 就不使用数据网络
+Netflix = select, Proxy🪁 , DIRECT
+Twitter = select,  Proxy🪁 
+Telegram = select, Proxy🪁 , hybrid=off // hybrid=off 即使在 All Hybrid 或 WiFi Assist 开启时，有 WiFi 就不使用数据网络
 Apple = select, DIRECT, Proxy🪁
 AdBlock = select, REJECT, DIRECT, REJECT-TINYGIF
-🇺🇸 America = url-test, include-other-group="Proxy🪁", policy-regex-filter=美国, interval=600, tolerance=100, evaluate-before-use=true, hidden=true
-🇭🇰 Load balance = load-balance, include-other-group="Proxy🪁", policy-regex-filter=(香港|HK), interval=-1, tolerance=100, persistent=true, hidden=true
-🇸🇬 Singapore = load-balance, include-other-group="Proxy🪁", policy-regex-filter=(新加坡|狮城), interval=-1, tolerance=100, persistent=true, hidden=true
-🇨🇳 Fallback = fallback, include-other-group="Proxy🪁", policy-regex-filter=台湾, timeout=3, interval=600, evaluate-before-use=true, hidden=true
-
 # 该段定义请求处理规则
 # 一个规则有三个基础部分:
 #          类型,          值,            策略
